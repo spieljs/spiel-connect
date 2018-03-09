@@ -1,1 +1,1 @@
-export { IParamsConnect, IPropsConnect, IRouterConnect, IRouterResponse } from "./interface";
+export { IParamsConnect, IPropsConnect, IRouterConnect } from "./interface";

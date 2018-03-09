@@ -1,28 +1,32 @@
 import { httpRequest, HttpRequest, RequestConfig } from "spiel-request";
-import { IParamsConnect, IPropsConnect, IRouterConnect, IRouterResponse } from "./helpers";
+import { IParamsConnect, IPropsConnect, IRouterConnect } from "./helpers";
 
-class Connect {
+export class Connect {
     private endPoints: any;
+    private options: RequestConfig;
 
     constructor(server: string) {
-        const options: RequestConfig = {
-            domain: server,
+        this.options = {
+            domain: server
         };
-
-        this.getEndpoints(options);
     }
 
-    private async getEndpoints(options: RequestConfig) {
-        const router: IRouterResponse = await httpRequest.sendRequest({method: "GET", url: "/"});
-
-        httpRequest.setRequest(options);
-        this.endPoints = this.setRouter(router);
+    public async getEndpoints() {
+        httpRequest.setRequest(this.options);
+        let endPoints;
+        try {
+            const router: IRouterConnect[] = await httpRequest.sendRequest({method: "GET", url: "/"});
+            endPoints = this.setRouter(router);
+            return endPoints;
+        } catch(error) {
+            console.log(error);
+        }
     }
 
-    private setRouter(router: IRouterResponse) {
+    private setRouter(router: IRouterConnect[]) {
         const endPoints: any = {};
 
-        router.routes.forEach((route: IRouterConnect) => {
+        router.forEach((route: IRouterConnect) => {
             endPoints[route.name] = {};
             route.props.forEach((prop: IPropsConnect) => {
                 endPoints[route.name][prop.name] = (params?: IParamsConnect, query?: object) => {
@@ -39,7 +43,7 @@ class Connect {
                                     query}`;
                     }
 
-                    httpRequest.sendRequest({method: prop.method, url: path || prop.path});
+                    return httpRequest.sendRequest({method: prop.method, url: path || prop.path});
                 };
             });
         });

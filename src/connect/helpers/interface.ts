@@ -7,10 +7,6 @@ export interface IRouterConnect {
     props: IPropsConnect[];
 }
 
-export interface IRouterResponse {
-    routes: IRouterConnect[];
-}
-
 export interface IPropsConnect {
     method: string;
     name: string;
