@@ -1,0 +1,8 @@
+npm-debug.log
+node_modules
+.tscache
+lib
+package-lock.json
+coverage
+TESTS-Firefox_59.0.0_(Linux_0.0.0).xml
+.vscode
