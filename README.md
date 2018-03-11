@@ -41,9 +41,19 @@ connect.then(async (server: IServerTest) => {
 You can use another backend framework but you need to build the endpoints response and it has to look like this:
 ```
 [{ name: 'ClassName1',
-    props: [ [method], [method], [method], ... ] },
+    props: [ { method: 'methodName', name: 'classMethodName', path: '/pathname' },
+             { method: 'methodName', name: 'classMethodName', path: '/pathname' },
+             { method: 'methodName', name: 'classMethodName', path: '/pathname' },
+                ...
+            ]
+  },
   { name: 'ClassName2',
-    props: [ [method], [method], [method], ... ],
+    props: [{ method: 'methodName', name: 'classMethodName', path: '/pathname' },
+             { method: 'methodName', name: 'classMethodName', path: '/pathname' },
+             { method: 'methodName', name: 'classMethodName', path: '/pathname' },
+                ... 
+            ]
+  },
     ...
 }]
 ```
