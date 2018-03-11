@@ -60,8 +60,8 @@ You can use another backend framework but you need to build the endpoints respon
 To get some idea to do it see more [here](https://github.com/spieljs/spiel-server/blob/master/src/server/set-router.ts)
 
 ## Run Spiel Connect tests
-`npm run server`
-`npm test`
+* `npm run server`
+* `npm test`
 
 ## License
 Spiel Connect is MIT licensed. See [license](LICENSE)
