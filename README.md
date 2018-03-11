@@ -54,4 +54,4 @@ To get some idea to do it see more [here](https://github.com/spieljs/spiel-serve
 `npm test`
 
 ## License
-Spiel Client is MIT licensed. See [license](LICENSE)
+Spiel Connect is MIT licensed. See [license](LICENSE)
