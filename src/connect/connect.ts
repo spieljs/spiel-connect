@@ -40,8 +40,8 @@ export class Connect {
             endPoints[route.name] = {};
             route.props.forEach((prop: IPropsConnect) => {
                 endPoints[route.name][prop.name] = (params?: IParamsConnect | null,
-                                                    body?: object | null,
-                                                    query?: object | string) => {
+                                                    query?: object | string | null,
+                                                    body?: object | null) => {
                     let path: string = "";
                     if (params) {
                         path = this.setParams(prop.path, params);

@@ -87,7 +87,7 @@ connect.then(<span class="hljs-function">(<span class="hljs-params">server: ISer
     <span class="hljs-keyword">const</span> user = {id: <span class="hljs-number">5</span>};
     <span class="hljs-keyword">const</span> permission = { permission: <span class="hljs-string">"root"</span>};
 
-    <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> server.User.updateUser(user, permission);
+    <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> server.User.updateUser(user, <span class="hljs-literal">null</span>, permission);
     <span class="hljs-built_in">console</span>.log(response);
 });
 </code></pre>

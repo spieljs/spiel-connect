@@ -28,7 +28,7 @@ connect.then(async (server: IServerTest) => {
     const user = {id: 5};
     const permission = { permission: "root"};
 
-    const response = await server.User.updateUser(user, permission);
+    const response = await server.User.updateUser(user, null, permission);
     console.log(response);
 });
 ```

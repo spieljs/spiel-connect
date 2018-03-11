@@ -6,8 +6,8 @@ import { RequestConfig } from "spiel-request";
  * Make a request with Spiel Connect</a>
  */
 export type RequestFunction = (params?: IParamsConnect | null,
-                               body?: object | null,
-                               query?: object | string) => Promise<any>;
+                               query?: object | string | null,
+                               body?: object | null) => Promise<any>;
 
 export interface IParamsConnect {
     [key: string]: any;

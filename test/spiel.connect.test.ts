@@ -26,7 +26,7 @@ describe("Connect", () => {
 
     it("has to exist response from greeting endpoint by query", async () => {
         const query = { greet: "Bye"};
-        const response = await endpoints.Greeting.getGreetingByQuery(null, null, query);
+        const response = await endpoints.Greeting.getGreetingByQuery(null, query);
         expect(response.greet).has.to.be.equal("Bye");
     });
 
@@ -45,7 +45,7 @@ describe("Connect", () => {
             permission: "user",
         };
 
-        const response = await endpoints.User.addUser(null, user);
+        const response = await endpoints.User.addUser(null, null, user);
         expect(response).has.to.length(5);
         expect(response[4].id).has.to.equal(5);
         expect(response[4].name).has.to.equal("Pepe");
@@ -56,7 +56,7 @@ describe("Connect", () => {
         const user = {id: 5};
         const permission = { permission: "root"};
 
-        const response = await endpoints.User.updateUser(user, permission);
+        const response = await endpoints.User.updateUser(user, null, permission);
         expect(response[4].permission).has.to.equal("root");
     });
 
