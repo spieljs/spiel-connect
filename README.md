@@ -12,7 +12,7 @@ Spiel Connect get all the endpoints and its methods therefore you don't need to 
 
 ```typescript
 import { Connect, IRequestConfigConnect } from "spiel-connect";
-import { IServerTest } from "./server.types";
+import { IServerTest } from "./services";
 
 const requestConnect: IRequestConfigConnect = {
     domain: "http://localhost:3000",
@@ -54,4 +54,4 @@ To get some idea to do it see more [here](https://github.com/spieljs/spiel-serve
 `npm test`
 
 ## License
-Spiel Client is MIT licensed. See [license](LICENSE.md)
+Spiel Client is MIT licensed. See [license](LICENSE)
