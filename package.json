@@ -5,9 +5,10 @@
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
   "scripts": {
-    "test": "karma start",
+    "test": "node_modules/.bin/karma start",
     "server": "node_modules/nodemon/bin/nodemon.js --watch 'serverTest/**/**' -e ts --exec 'ts-node' ./serverTest/server.ts",
-    "lint": "node_modules/tslint/bin/tslint src/**/*.ts"
+    "lint": "node_modules/tslint/bin/tslint src/**/*.ts",
+    "docs": "gulp typedoc"
   },
   "repository": {
     "type": "git",
