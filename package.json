@@ -6,7 +6,7 @@
   "types": "lib/src/index.d.ts",
   "scripts": {
     "test": "karma start",
-    "server": "node_modules/nodemon/bin/nodemon.js --watch 'serviceTest/**/**' -e ts --exec 'ts-node' ./serviceTest/server.ts",
+    "server": "node_modules/nodemon/bin/nodemon.js --watch 'serverTest/**/**' -e ts --exec 'ts-node' ./serverTest/server.ts",
     "lint": "node_modules/tslint/bin/tslint src/**/*.ts"
   },
   "repository": {
