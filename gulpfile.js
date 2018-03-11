@@ -7,7 +7,7 @@ gulp.task("typedoc", function() {
             module: "commonjs",
             target: "es6",
             out: "docs/",
-            name: "Spiel Request",
+            name: "Spiel Connect",
             readme: "READMEAPI.md"
         }));
 });
