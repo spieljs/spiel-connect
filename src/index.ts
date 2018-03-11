@@ -1,1 +1,1 @@
-export { Connect, IParamsConnect, IPropsConnect, IRouterConnect } from "./connect"
+export { Connect, IParamsConnect, IPropsConnect, IRequestConfigConnect ,IRouterConnect, RequestFunction } from "./connect"

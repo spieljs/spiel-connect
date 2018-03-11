@@ -6,7 +6,8 @@
   "types": "lib/src/index.d.ts",
   "scripts": {
     "test": "karma start",
-    "server": "nodemon --watch 'serviceTest/**/**' -e ts --exec 'ts-node' ./serviceTest/server.ts"
+    "server": "node_modules/nodemon/bin/nodemon.js --watch 'serviceTest/**/**' -e ts --exec 'ts-node' ./serviceTest/server.ts",
+    "lint": "node_modules/tslint/bin/tslint src/**/*.ts"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,7 @@
   },
   "homepage": "https://github.com/spieljs/spiel-connect#readme",
   "dependencies": {
-    "spiel-request": "^0.1.4"
+    "spiel-request": "^0.1.6"
   },
   "devDependencies": {
     "@types/chai": "^4.1.2",
@@ -47,11 +48,11 @@
     "mocha": "^4.1.0",
     "nodemon": "^1.14.12",
     "source-map-support": "^0.5.3",
-    "spiel-server": "^0.1.4",
+    "spiel-server": "^0.1.5",
     "ts-loader": "^3.4.0",
     "ts-node": "^3.3.0",
+    "tslint": "^5.9.1",
     "typedoc": "^0.10.0",
-    "typescript": "^2.7.1",
-    "webpack": "^3.3.0"
+    "typescript": "^2.7.1"
   }
 }

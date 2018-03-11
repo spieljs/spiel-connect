@@ -1,25 +1,35 @@
 import { httpRequest, HttpRequest, RequestConfig } from "spiel-request";
-import { IParamsConnect, IPropsConnect, IRouterConnect } from "./helpers";
+import { IParamsConnect, IPropsConnect, IRequestConfigConnect, IRouterConnect } from "./helpers";
 
+/**
+ * Class to set the endpoints requests
+ */
 export class Connect {
-    private endPoints: any;
     private options: RequestConfig;
+    private path?: string;
 
-    constructor(server: string) {
-        this.options = {
-            domain: server
-        };
+    /**
+     * @param requestOptions Request options like spiel-request but domain is required in this case
+     * @param path Alternative path to get all the enpoints
+     */
+    constructor(requestOptions: IRequestConfigConnect, path?: string) {
+        this.options = requestOptions;
+        this.path = path;
     }
 
+    /**
+     * It get the endpoints with its methods
+     */
     public async getEndpoints() {
         httpRequest.setRequest(this.options);
         let endPoints;
         try {
-            const router: IRouterConnect[] = await httpRequest.sendRequest({method: "GET", url: "/"});
+            const router: IRouterConnect[] = await httpRequest.sendRequest({method: "GET",
+                                                                            url: this.path || "/"});
             endPoints = this.setRouter(router);
             return endPoints;
-        } catch(error) {
-            console.log(error);
+        } catch (error) {
+            throw new Error(error);
         }
     }
 
@@ -29,7 +39,9 @@ export class Connect {
         router.forEach((route: IRouterConnect) => {
             endPoints[route.name] = {};
             route.props.forEach((prop: IPropsConnect) => {
-                endPoints[route.name][prop.name] = (params?: IParamsConnect, query?: object) => {
+                endPoints[route.name][prop.name] = (params?: IParamsConnect | null,
+                                                    body?: object | null,
+                                                    query?: object | string) => {
                     let path: string = "";
                     if (params) {
                         path = this.setParams(prop.path, params);
@@ -38,12 +50,12 @@ export class Connect {
                     if (query) {
                         path = `${(path) ?
                                 path :
-                                prop.path}?${(typeof query === "object") ?
+                                prop.path}?response=${(typeof query === "object") ?
                                     encodeURIComponent(JSON.stringify(query)) :
                                     query}`;
                     }
 
-                    return httpRequest.sendRequest({method: prop.method, url: path || prop.path});
+                    return httpRequest.sendRequest({method: prop.method, body, url: path || prop.path});
                 };
             });
         });
@@ -53,7 +65,7 @@ export class Connect {
 
     private setParams(path: string, params: IParamsConnect): string {
         Object.keys(params).forEach((key: string) => {
-            const reg = new RegExp(`#${key}|$${key}`);
+            const reg = new RegExp(`#${key}|$${key}|:${key}`);
             path = path.replace(reg, params[key]);
         });
 
