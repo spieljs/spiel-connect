@@ -4,7 +4,7 @@ Spiel Connect get all the endpoints and its methods therefore you don't need to 
 
 ## Api documentation
 
-* Spiel Connect API
+* [Spiel Connect API](https://spieljs.github.io/spiel-connect/)
 
 ## How use it
 
