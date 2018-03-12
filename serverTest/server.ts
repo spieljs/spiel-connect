@@ -111,16 +111,17 @@ class Greeting {
     }
 }
 
-app.use(middleware.cors({
-    validOrigins: ["http://localhost:9876"],
-    validMethods: ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
-    requestHeaders: ["content-type"],
-}));
-
 const endpoints = [new User(), new Greeting()];
+
+const cors = {
+    requestHeaders: ["content-type"],
+    validMethods: ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
+    validOrigins: ["http://localhost:9876"],
+};
 
 const configRouter: IRouterOptions = {
   connectionMode: true,
+  cors,
   endpoints,
   road: app,
   verbose: true,
