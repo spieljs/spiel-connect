@@ -1,6 +1,6 @@
 {
   "name": "spiel-connect",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "get all the backend methods to make request easy",
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",

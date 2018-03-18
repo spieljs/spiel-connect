@@ -9,3 +9,6 @@ test
 docs
 READMEAPI.md
 serviceTest
+tsconfig.json
+tslint
+package-lock.json

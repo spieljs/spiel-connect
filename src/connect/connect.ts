@@ -65,7 +65,7 @@ export class Connect {
 
     private setParams(path: string, params: IParamsConnect): string {
         Object.keys(params).forEach((key: string) => {
-            const reg = new RegExp(`#${key}|$${key}|:${key}`);
+            const reg = new RegExp(`#${key}|\\$${key}|:${key}`);
             path = path.replace(reg, params[key]);
         });
 
