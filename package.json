@@ -1,6 +1,6 @@
 {
   "name": "spiel-connect",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "get all the backend methods to make request easy",
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
@@ -26,12 +26,12 @@
   },
   "homepage": "https://github.com/spieljs/spiel-connect#readme",
   "dependencies": {
-    "spiel-request": "^0.1.6"
+    "spiel-request": "^0.2.0"
   },
   "devDependencies": {
     "@types/chai": "^4.1.2",
     "@types/mocha": "^2.2.48",
-    "@types/node": "^8.5.8",
+    "@types/node": "^8.10.1",
     "chai": "^4.1.2",
     "gulp": "^3.9.1",
     "gulp-typedoc": "^2.2.0",
@@ -47,13 +47,13 @@
     "karma-remap-coverage": "^0.1.5",
     "karma-typescript": "^3.0.12",
     "mocha": "^4.1.0",
-    "nodemon": "^1.14.12",
-    "source-map-support": "^0.5.3",
+    "nodemon": "^1.17.2",
+    "source-map-support": "^0.5.4",
     "spiel-server": "^0.2.0",
     "ts-loader": "^3.4.0",
     "ts-node": "^3.3.0",
     "tslint": "^5.9.1",
     "typedoc": "^0.10.0",
-    "typescript": "^2.7.1"
+    "typescript": "^2.8.1"
   }
 }
